@@ -1,5 +1,3 @@
-package modules;
-
 import com.google.inject.AbstractModule;
 import dao.UserDao;
 import dao.UserDaoImpl;

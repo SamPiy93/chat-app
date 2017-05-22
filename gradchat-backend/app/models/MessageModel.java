@@ -2,10 +2,7 @@ package models;
 
 import com.avaje.ebean.Model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * ApiDataSource class to represent API_DATA_SOURCE table
@@ -14,7 +11,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "MESSAGES")
 public class MessageModel extends Model {
-    @Id
+    @Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "APPLICATION_SEQ")
     @Column(name = "MESSAGE_ID",nullable = false)
     private int messageId;
 

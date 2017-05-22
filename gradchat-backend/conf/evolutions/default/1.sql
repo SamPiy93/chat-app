@@ -11,10 +11,10 @@ create table messages (
   recieved_on                   varchar(255) not null,
   constraint pk_messages primary key (message_id)
 );
-create sequence MESSAGES_seq;
+create sequence APPLICATION_SEQ;
 
 create table users (
-  user_id                       integer not null,
+  user_id                       bigint not null,
   user_firstname                varchar(255) not null,
   user_lastname                 varchar(255) not null,
   user_email                    varchar(255) not null,
@@ -27,7 +27,7 @@ create sequence USERS_seq;
 # --- !Downs
 
 drop table if exists messages;
-drop sequence if exists MESSAGES_seq;
+drop sequence if exists APPLICATION_SEQ;
 
 drop table if exists users;
 drop sequence if exists USERS_seq;

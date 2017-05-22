@@ -12,5 +12,5 @@ public interface BaseDao<T> {
 
     List<T> getAllRecords();
 
-    T getDetailsById(int id);
+    T getDetailsById(Long id);
 }

@@ -30,7 +30,7 @@ public class MessageDaoImpl implements MessageDao {
     }
 
     @Override
-    public MessageModel getDetailsById(int id) {
+    public MessageModel getDetailsById(Long id) {
         return null;
     }
 }
