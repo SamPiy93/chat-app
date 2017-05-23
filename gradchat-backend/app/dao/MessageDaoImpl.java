@@ -16,7 +16,6 @@ public class MessageDaoImpl implements MessageDao {
     public MessageModel add(MessageModel entity) {
         try {
             entity.save();
-            System.out.println(entity);
         } catch(PersistenceException e) {
             System.out.println(e.getLocalizedMessage());
         }

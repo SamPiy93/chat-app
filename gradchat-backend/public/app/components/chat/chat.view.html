@@ -1,7 +1,7 @@
 <table class="table table-filter">
     <tbody ng-repeat="m in messages" >
 
-    <tr ng-if="m.RECIEVER_ID!='1'">
+    <tr ng-if="m.RECIEVER_ID!=loggedUser">
         <td>
             <div class="media">
                 <div class="media-body">
@@ -14,7 +14,7 @@
             </div>
         </td>
     </tr>
-    <tr ng-if="m.RECIEVER_ID=='1'">
+    <tr ng-if="m.RECIEVER_ID==loggedUser">
         <td>
             <div class="media">
                 <div class="media-body">
@@ -31,10 +31,10 @@
     </tbody>
 </table>
 <form>
-    <div class="input-group">
+    <div class="input-group" style="position: absolute; bottom: 0px; padding: 5px">
         <input type="text" class="form-control" placeholder="Search" ng-model="newMessage">
         <div class="input-group-btn">
-            <button class="btn btn-primary" type="button" ng-click="composeMessage(getDatetime | date:'yyyy-MMM-dd HH:mm:ss','1')">
+            <button class="btn btn-primary" type="button" ng-click="composeMessage(getDatetime | date:'yyyy-MMM-dd HH:mm:ss',loggedUser)">
                 <i class="fa fa-send-o"></i>
             </button>
         </div>

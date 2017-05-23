@@ -7,9 +7,9 @@ GET     /                           controllers.LoginController.index
 GET     /login                      controllers.LoginController.loginScreen()
 GET     /register                   controllers.LoginController.signupScreen()
 GET     /chat/users                 controllers.UserController.getAllUsers()
+GET     /chat/users/:id             controllers.UserController.getUserByID(id:Long)
 POST    /chat/users                 controllers.LoginController.createUser()
-POST    /chat/login                 controllers.LoginController.findUser()
-
+POST    /chat/login                 controllers.LoginController.authenticate()
 POST    /chat/messages              controllers.MessageController.createMessage()
 POST    /chat/retrieve/messages     controllers.MessageController.getMessages()
 

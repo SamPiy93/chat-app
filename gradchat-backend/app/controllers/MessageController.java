@@ -20,7 +20,6 @@ public class MessageController extends Controller {
     public Result createMessage(){
         MessageDto messageDto = null;
         String requestParams = request().body().asJson().toString();
-        System.out.println(requestParams);
         try {
             messageDto = JsonMapper.mapJson(requestParams, MessageDto.class);
             messageService.createMessage(messageDto);

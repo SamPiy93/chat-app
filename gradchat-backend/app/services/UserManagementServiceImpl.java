@@ -16,16 +16,12 @@ public class UserManagementServiceImpl implements UserManagementService {
 
     @Override
     public void createUser(UserDto userDto) {
-//        Ebean.beginTransaction();
         UserModel userModel = new UserModel();
         userModel.setUserFirstName(userDto.getUserFirstName());
         userModel.setUserLastName(userDto.getUserLastName());
         userModel.setUserEmail(userDto.getUserEmail());
         userModel.setUserPassword(userDto.getUserPassword());
-        System.out.println(Json.toJson(userModel));
-        userModel = userDao.add(userModel);
-
-//        Ebean.endTransaction();
+        userDao.add(userModel);
     }
 
     @Override
@@ -34,9 +30,7 @@ public class UserManagementServiceImpl implements UserManagementService {
 
         List<UserDto> userDtoList = new ArrayList<>();
         userModelList = userDao.getAllRecords();
-        System.out.println(userModelList.toString());
         for (UserModel userModel : userModelList){
-            System.out.println("inside dao");
 
             UserDto userDto = new UserDto();
             userDto.setUserId(userModel.getUserId());
@@ -47,6 +41,18 @@ public class UserManagementServiceImpl implements UserManagementService {
             userDtoList.add(userDto);
         }
         return userDtoList;
+    }
+
+    @Override
+    public UserDto getUserByID(Long id){
+        UserModel user =  userDao.getDetailsById(id);
+        UserDto userDto = new UserDto();
+        userDto.setUserId(user.getUserId());
+        userDto.setUserFirstName(user.getUserFirstName());
+        userDto.setUserLastName(user.getUserLastName());
+        userDto.setUserEmail(user.getUserEmail());
+        userDto.setUserPassword(user.getUserPassword());
+        return userDto;
     }
 
     @Override

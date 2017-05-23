@@ -42,7 +42,7 @@ public class LoginController extends Controller {
     }
 
     @BodyParser.Of(BodyParser.Json.class)
-    public Result findUser(){
+    public Result authenticate(){
         UserDto userDto = null;
         String requestParams = request().body().asJson().toString();
         try {

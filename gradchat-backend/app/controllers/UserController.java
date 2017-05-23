@@ -20,4 +20,13 @@ public class UserController extends Controller {
         }
         return ok("Error In Retrieving User List");
     }
+
+    public Result getUserByID(Long id){
+        UserDto user = userManagementService.getUserByID(id);
+
+        if (user != null ) {
+            return ok(Json.toJson(user));
+        }
+        return notFound("Error In Retrieving User List");
+    }
 }

@@ -20,7 +20,7 @@ html, body {
 }
 
 .profile{
-  margin-left: 40%
+  margin-left: 30%
 }
 
 .card .middle {
@@ -34,7 +34,7 @@ html, body {
 .panel {
 	border: 1px solid #ddd;
 	background-color: #fcfcfc;
-  height: 100vh;
+  	height: 100vh;
 }
 .panel .btn-group {
 	margin: 15px 0 30px;

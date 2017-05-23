@@ -14,7 +14,6 @@ public class UserDaoImpl implements UserDao {
     public UserModel add(UserModel entity) {
         try {
             entity.save();
-            System.out.println(entity);
             return entity;
         } catch(PersistenceException e) {
             System.out.println(e.getLocalizedMessage());
@@ -34,7 +33,6 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public List<UserModel> getAllRecords() {
-        UserModel.find.findList().forEach(x->System.out.println(x.toString()));
         return UserModel.find.findList();
     }
 
