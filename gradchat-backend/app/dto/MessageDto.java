@@ -3,15 +3,11 @@ package dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-/**
- * DTO to handle API Environments
- *
- */
 @JsonPropertyOrder({"MESSAGE_ID", "SENDER_ID", "RECIEVER_ID", "MESSAGE_CONTENT", "RECIEVED_ON"})
 public class MessageDto {
 
     @JsonProperty("MESSAGE_ID")
-    private int messageId;
+    private Long messageId;
 
     @JsonProperty("SENDER_ID")
     private String senderId;
@@ -25,11 +21,11 @@ public class MessageDto {
     @JsonProperty("RECIEVED_ON")
     private String recievedOn;
 
-    public int getMessageId() {
+    public Long getMessageId() {
         return messageId;
     }
 
-    public void setMessageId(int messageId) {
+    public void setMessageId(Long messageId) {
         this.messageId = messageId;
     }
 

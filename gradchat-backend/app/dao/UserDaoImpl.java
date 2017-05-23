@@ -8,14 +8,7 @@ import models.UserModel;
 import javax.persistence.PersistenceException;
 import java.util.List;
 
-/**
- * Created by sameerap on 22/05/2017.
- */
 public class UserDaoImpl implements UserDao {
-
-//    List<UserModel> customers =
-//            UserModel.find
-//                    .findList();
 
     @Override
     public UserModel add(UserModel entity) {

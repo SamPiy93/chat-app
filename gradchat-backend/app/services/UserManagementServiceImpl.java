@@ -10,9 +10,6 @@ import play.libs.Json;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by sameerap on 22/05/2017.
- */
 public class UserManagementServiceImpl implements UserManagementService {
     @Inject
     UserDao userDao;
@@ -65,13 +62,19 @@ public class UserManagementServiceImpl implements UserManagementService {
     }
 
     @Override
-    public UserDto loginUser(UserDto userDto) {
-        UserModel userModel = userDao.getLoggedInUser(userDto);
-        userDto.setUserId(userModel.getUserId());
-        userDto.setUserFirstName(userModel.getUserFirstName());
-        userDto.setUserLastName(userModel.getUserLastName());
-        userDto.setUserEmail(userModel.getUserEmail());
-        userDto.setUserPassword(userModel.getUserPassword());
+    public UserDto loginUser(UserDto userDto) throws Exception {
+        UserModel userModel = null;
+
+        try{
+            userModel = userDao.getLoggedInUser(userDto);
+            userDto.setUserId(userModel.getUserId());
+            userDto.setUserFirstName(userModel.getUserFirstName());
+            userDto.setUserLastName(userModel.getUserLastName());
+            userDto.setUserEmail(userModel.getUserEmail());
+            userDto.setUserPassword(userModel.getUserPassword());
+        } catch (Exception e){
+            throw new Exception(e.getCause());
+        }
 
         return userDto;
     }

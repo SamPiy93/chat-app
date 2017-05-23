@@ -1,7 +1,10 @@
 package dao;
 
+import com.avaje.ebean.Expr;
+import dto.MessageDto;
 import models.MessageModel;
 
+import javax.persistence.PersistenceException;
 import java.util.List;
 
 /**
@@ -11,7 +14,13 @@ public class MessageDaoImpl implements MessageDao {
 
     @Override
     public MessageModel add(MessageModel entity) {
-        return null;
+        try {
+            entity.save();
+            System.out.println(entity);
+        } catch(PersistenceException e) {
+            System.out.println(e.getLocalizedMessage());
+        }
+        return entity;
     }
 
     @Override
@@ -32,5 +41,16 @@ public class MessageDaoImpl implements MessageDao {
     @Override
     public MessageModel getDetailsById(Long id) {
         return null;
+    }
+
+    @Override
+    public List<MessageModel> getMessagesBySender(MessageDto messageDto) {
+        return MessageModel.find
+                .where()
+                .or(
+                        Expr.and(Expr.eq("SENDER_ID", messageDto.getSenderId()), Expr.eq("RECIEVER_ID", messageDto.getRecieverId())),
+                        Expr.and(Expr.eq("RECIEVER_ID", messageDto.getSenderId()), Expr.eq("SENDER_ID", messageDto.getRecieverId()))
+                )
+                .findList();
     }
 }

@@ -3,9 +3,6 @@ package dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-/**
- * Created by sameerap on 22/05/2017.
- */
 @JsonPropertyOrder({"USER_ID", "USER_FIRSTNAME", "USER_LASTNAME", "USER_EMAIL", "USER_PASSWORD"})
 public class UserDto {
     @JsonProperty("USER_ID")

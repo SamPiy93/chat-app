@@ -9,9 +9,6 @@ import services.UserManagementService;
 
 import java.util.List;
 
-/**
- * Created by sameerap on 22/05/2017.
- */
 public class UserController extends Controller {
     @Inject
     private UserManagementService userManagementService;

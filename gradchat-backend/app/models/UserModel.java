@@ -6,10 +6,6 @@ import org.h2.schema.Sequence;
 import javax.persistence.*;
 import java.io.Serializable;
 
-/**
- * ApiEnv class to represent API_ENV table
- *
- */
 @Entity
 @Table(name = "USERS")
 public class UserModel extends Model implements Serializable{

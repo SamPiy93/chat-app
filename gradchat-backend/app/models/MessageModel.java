@@ -4,16 +4,12 @@ import com.avaje.ebean.Model;
 
 import javax.persistence.*;
 
-/**
- * ApiDataSource class to represent API_DATA_SOURCE table
- *
- */
 @Entity
 @Table(name = "MESSAGES")
 public class MessageModel extends Model {
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "APPLICATION_SEQ")
     @Column(name = "MESSAGE_ID",nullable = false)
-    private int messageId;
+    private Long messageId;
 
     @Column(name = "SENDER_ID",nullable = false)
     private String senderId;
@@ -27,11 +23,13 @@ public class MessageModel extends Model {
     @Column(name = "RECIEVED_ON",nullable = false)
     private String recievedOn;
 
-    public int getMessageId() {
+    public static Finder<Long, MessageModel> find = new Finder<Long, MessageModel>(MessageModel.class);
+
+    public Long getMessageId() {
         return messageId;
     }
 
-    public void setMessageId(int messageId) {
+    public void setMessageId(Long messageId) {
         this.messageId = messageId;
     }
 
@@ -65,5 +63,42 @@ public class MessageModel extends Model {
 
     public void setRecievedOn(String recievedOn) {
         this.recievedOn = recievedOn;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        MessageModel that = (MessageModel) o;
+
+        if (messageId != null ? !messageId.equals(that.messageId) : that.messageId != null) return false;
+        if (senderId != null ? !senderId.equals(that.senderId) : that.senderId != null) return false;
+        if (recieverId != null ? !recieverId.equals(that.recieverId) : that.recieverId != null) return false;
+        if (messageContent != null ? !messageContent.equals(that.messageContent) : that.messageContent != null)
+            return false;
+        return recievedOn != null ? recievedOn.equals(that.recievedOn) : that.recievedOn == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = messageId != null ? messageId.hashCode() : 0;
+        result = 31 * result + (senderId != null ? senderId.hashCode() : 0);
+        result = 31 * result + (recieverId != null ? recieverId.hashCode() : 0);
+        result = 31 * result + (messageContent != null ? messageContent.hashCode() : 0);
+        result = 31 * result + (recievedOn != null ? recievedOn.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "MessageModel{" +
+                "messageId=" + messageId +
+                ", senderId='" + senderId + '\'' +
+                ", recieverId='" + recieverId + '\'' +
+                ", messageContent='" + messageContent + '\'' +
+                ", recievedOn='" + recievedOn + '\'' +
+                '}';
     }
 }

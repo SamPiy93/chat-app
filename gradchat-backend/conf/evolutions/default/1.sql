@@ -4,7 +4,7 @@
 # --- !Ups
 
 create table messages (
-  message_id                    integer not null,
+  message_id                    bigint not null,
   sender_id                     varchar(255) not null,
   reciever_id                   varchar(255) not null,
   message_content               varchar(255) not null,

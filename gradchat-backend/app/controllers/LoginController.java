@@ -13,14 +13,18 @@ import views.html.*;
 import java.io.IOException;
 import java.util.List;
 
-/**
- * This controller contains an action to handle HTTP requests
- * to the application's home page.
- */
 public class LoginController extends Controller {
 
     @Inject
     private UserManagementService userManagementService;
+
+    public Result signupScreen() {
+        return ok(signup.render());
+    }
+
+    public Result loginScreen() {
+        return ok(login.render());
+    }
 
 
     @BodyParser.Of(BodyParser.Json.class)
@@ -45,13 +49,17 @@ public class LoginController extends Controller {
             userDto = JsonMapper.mapJson(requestParams, UserDto.class);
             userManagementService.loginUser(userDto);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getLocalizedMessage());
+            userDto.setUserId((long) 0);
+        } catch (Exception e) {
+            userDto.setUserId((long) 0);
         }
         return ok(Json.toJson(userDto));
+
     }
 
     public Result index() {
-        return ok("Your new application is ready.");
+        return ok(index.render());
     }
 
 }
