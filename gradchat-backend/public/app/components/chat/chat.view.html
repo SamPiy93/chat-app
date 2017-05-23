@@ -1,0 +1,42 @@
+<table class="table table-filter">
+    <tbody ng-repeat="m in messages" >
+
+    <tr ng-if="m.RECIEVER_ID!=loggedUser">
+        <td>
+            <div class="media">
+                <div class="media-body">
+                    <span class="media-meta pull-right">{{m.RECIEVED_ON}}</span>
+                    <h4 class="title">
+                        You
+                    </h4>
+                    <p class="summary">{{m.MESSAGE_CONTENT}}</p>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr ng-if="m.RECIEVER_ID==loggedUser">
+        <td>
+            <div class="media">
+                <div class="media-body">
+                    <span class="media-meta pull-right">{{m.RECIEVED_ON}}</span>
+                    <h4 class="title">
+                        {{senderName}}
+                    </h4>
+                    <p class="summary">{{m.MESSAGE_CONTENT}}</p>
+                </div>
+            </div>
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+<form>
+    <div class="input-group" style="position: absolute; bottom: 0px; padding: 5px">
+        <input type="text" class="form-control" placeholder="Enter message here..." ng-model="newMessage">
+        <div class="input-group-btn">
+            <button class="btn btn-primary" type="button" ng-click="composeMessage(getDatetime | date:'yyyy-MMM-dd HH:mm:ss',loggedUser)">
+                <i class="fa fa-send-o"></i>
+            </button>
+        </div>
+    </div>
+</form>

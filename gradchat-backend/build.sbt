@@ -11,9 +11,11 @@ libraryDependencies ++= Seq(
   cache,
   javaWs,
   filters,
+  evolutions,
   "org.mockito" % "mockito-all" % "1.10.19",
   "org.powermock" % "powermock-mockito-release-full" % "1.6.4",
   "org.apache.httpcomponents" % "httpclient" % "4.5.2",
   "org.apache.httpcomponents" % "httpcore" % "4.4.4",
   "org.apache.httpcomponents" % "httpmime" % "4.3.1"
+
 )

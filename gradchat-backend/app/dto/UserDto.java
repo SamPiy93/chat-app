@@ -3,13 +3,10 @@ package dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-/**
- * Created by sameerap on 22/05/2017.
- */
 @JsonPropertyOrder({"USER_ID", "USER_FIRSTNAME", "USER_LASTNAME", "USER_EMAIL", "USER_PASSWORD"})
 public class UserDto {
     @JsonProperty("USER_ID")
-    private int userId;
+    private Long userId;
 
     @JsonProperty("USER_FIRSTNAME")
     private String userFirstName;
@@ -23,11 +20,11 @@ public class UserDto {
     @JsonProperty("USER_PASSWORD")
     private String userPassword;
 
-    public int getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
