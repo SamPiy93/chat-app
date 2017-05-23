@@ -1,3 +1,5 @@
-var inward = angular.module('chatApp', [
-    'ngRoute'
+var chatModule = angular.module('chatApp', [
+    'ngRoute',
+    'ngCookies'
 ]);
+

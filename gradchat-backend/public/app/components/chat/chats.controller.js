@@ -1,12 +1,13 @@
 angular.module('chatApp').controller('ChatController',
-    ['ChatService','$location', '$scope','$routeParams', function(ChatService,$location, $scope, $routeParams) {
+    ['ChatService','$location', '$scope','$routeParams', '$cookies', function(ChatService,$location, $scope, $routeParams, $cookies) {
 
-    function getUserList() {
-
+    function getUserListFunc() {
         ChatService.getUserList().then(users =>{
             $scope.users = users;
-        })
+    })
     }
+
+    $scope.loggedUser = $cookies.get("LOGGED_USER");
     // function getMessages(type) {
     //     ChatService.getMessages({"SENDER_ID":"1","RECIEVER_ID":"2"}).then(messages => {
     //         console.log(messages);
@@ -15,14 +16,14 @@ angular.module('chatApp').controller('ChatController',
     // }
 
     function fetchUserMessages(userId,senderId,userFirstName) {
-
         let query = {"RECIEVER_ID":userId, "SENDER_ID":senderId};
-        ChatService.getMessages(query).then(messages => {
+        ChatService.getMessagesList(query).then(messages => {
             $scope.senderName = userFirstName;
             $scope.messages = messages;
         })
     }
     $scope.fetchUserMessages = fetchUserMessages;
+
     $scope.fetchUserProfile = function(user){
         $location.path('/profile/'+user.USER_ID);
         $scope.firstName = user.USER_FIRSTNAME;
@@ -30,6 +31,7 @@ angular.module('chatApp').controller('ChatController',
         $scope.email = user.USER_EMAIL;
         // alert("USER PROFILE\nName : "+firstName+" "+lastName+"\nEmail : "+email);
     };
+
     $scope.composeMessage = function(dateTime, senderId){
         var receiverId = $routeParams.id;
         // let message = prompt("Enter message here...","Enter message here...");
@@ -40,7 +42,7 @@ angular.module('chatApp').controller('ChatController',
     };
     $scope.getDatetime = new Date();
 
-    getUserList();
+    getUserListFunc();
         // getMessages({"SENDER_ID":"1","RECIEVER_ID":"2"});
     $scope.goToAdd = (user) => {
         $location.path('/chats/'+user.USER_ID);
