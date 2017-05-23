@@ -1,5 +1,16 @@
-<h1>Profile</h1>
-<h2>{{firstName}}</h2>
-<h2>{{lastName}}</h2>
-<h2>{{email}}</h2>
+<div class="profile-sidebar">
+    <div class="profile-userpic">
 
+    </div>
+    <div class="profile-usertitle">
+        <div class="profile-usertitle-name">
+            {{firstName}} {{lastName}}
+        </div>
+        <div class="profile-usertitle-job">
+            {{email}}
+        </div>
+    </div>
+    <div class="profile-userbuttons">
+        <button type="button" class="btn btn-danger btn-sm" ng-click="chat()">Message</button>
+    </div>
+</div>

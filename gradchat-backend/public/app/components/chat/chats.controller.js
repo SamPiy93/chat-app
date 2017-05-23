@@ -46,4 +46,12 @@ angular.module('chatApp').controller('ChatController',
         $scope.goToProfile = (user) => {
             $location.path('/profile/'+user.USER_ID);
         }
+        $scope.chat = () => {
+            var userId = $routeParams.id;
+            $location.path('/chats/'+ userId);
+            ChatService.getUserByID(userId).then((data) => {
+                console.log(data);
+            fetchUserMessages(userId, thisUser, data.USER_FIRSTNAME);
+        })
+        }
 }]);

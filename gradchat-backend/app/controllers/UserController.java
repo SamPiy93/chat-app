@@ -18,7 +18,7 @@ public class UserController extends Controller {
         if (userDetailsList != null && !userDetailsList.isEmpty()) {
             return ok(Json.toJson(userDetailsList));
         }
-        return ok("Error In Retrieving User List");
+        return badRequest("Error In Retrieving User List");
     }
 
     public Result getUserByID(Long id){

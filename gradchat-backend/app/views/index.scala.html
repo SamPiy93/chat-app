@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html  ng-app="chatApp">
     <head>
         <meta charset="UTF-8">
         <title>Chat App</title>
@@ -11,16 +11,22 @@
         <script src="/assets/node_modules/angular/angular.js"></script>
         <script src="/assets/node_modules/angular-route/angular-route.js"></script>
         <script src="/assets/node_modules/angular-cookies/angular-cookies.js"></script>
-        @*<script>*@
-            @*if ({{loggedUser}} == null || loggedUser <= 0){*@
-                @*window.location.href = "/login";*@
-            @*}*@
-        @*</script>*@
+
     </head>
 
-    <body ng-app="chatApp">
+    <body>
         <div class="jumbotron">
             <div class="container" ng-controller="ChatController">
+                <div ng-if="(loggedUser==null || loggedUser <=0 || loggedUser == undefined)">
+                    @*<script>*@
+                        @*function authCheck() {*@
+                            @*window.location.href = "/login";*@
+                        @*}*@
+
+                        @*authCheck()*@
+                    @*</script>*@
+                </div>
+
                 <div class="row">
                     <div class="col-md-3 right" style="padding:0px">
                         <div class="card">
@@ -29,7 +35,7 @@
                             </div>
                             <ul class="list-group users" ng-repeat="user in users">
                                 <li ng-if="user.USER_ID!=loggedUser" class="list-group-item">{{user.USER_FIRSTNAME}} {{user.USER_LASTNAME}}
-                                    <i ng-click="goToProfile(user)" class="fa fa-user-circle fa-2x profile"></i>&nbsp; &nbsp;
+                                    <i ng-click="goToProfile(user)" class="fa fa-user-circle fa-2x profile-img"></i>&nbsp; &nbsp;
                                     <i ng-click="goToChats(user)" class="fa fa-wechat fa-2x"></i>
                                 </li>
                             </ul>
