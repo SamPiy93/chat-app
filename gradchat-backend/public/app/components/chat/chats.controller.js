@@ -3,6 +3,9 @@ angular.module('chatApp').controller('ChatController',
 
 
         $scope.loggedUser = $cookies.get("LOGGED_USER");
+        if($scope.loggedUser == undefined || $scope.loggedUser == null || $scope.loggedUser == 0){
+            document.location.href = '/login';
+        }
         let thisUser = $scope.loggedUser;
 
         function getUserList() {
@@ -42,7 +45,6 @@ angular.module('chatApp').controller('ChatController',
             $scope.name = user.USER_FIRSTNAME;
             fetchUserMessages(user.USER_ID, thisUser, user.USER_FIRSTNAME)
         }
-
         $scope.goToProfile = (user) => {
             $location.path('/profile/'+user.USER_ID);
         }
@@ -51,7 +53,12 @@ angular.module('chatApp').controller('ChatController',
             $location.path('/chats/'+ userId);
             ChatService.getUserByID(userId).then((data) => {
                 console.log(data);
-            fetchUserMessages(userId, thisUser, data.USER_FIRSTNAME);
-        })
+                fetchUserMessages(userId, thisUser, data.USER_FIRSTNAME);
+            })
+        }
+
+        $scope.logout = ()=>{
+            $cookies.put("LOGGED_USER", 0);
+            window.location.href = "/login";
         }
 }]);

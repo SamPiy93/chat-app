@@ -17,21 +17,13 @@
     <body>
         <div class="jumbotron">
             <div class="container" ng-controller="ChatController">
-                <div ng-if="(loggedUser==null || loggedUser <=0 || loggedUser == undefined)">
-                    @*<script>*@
-                        @*function authCheck() {*@
-                            @*window.location.href = "/login";*@
-                        @*}*@
-
-                        @*authCheck()*@
-                    @*</script>*@
-                </div>
 
                 <div class="row">
                     <div class="col-md-3 right" style="padding:0px">
+
                         <div class="card">
                             <div class="card-header">
-                                <i class="fa fa-users"></i> &nbsp; &nbsp;Users
+                                <i class="fa fa-users"></i> &nbsp; Users&nbsp;<button ng-click="logout()" type="button" class="btn btn-primary" style="float: right;">Logout</button>
                             </div>
                             <ul class="list-group users" ng-repeat="user in users">
                                 <li ng-if="user.USER_ID!=loggedUser" class="list-group-item">{{user.USER_FIRSTNAME}} {{user.USER_LASTNAME}}
