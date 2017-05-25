@@ -18,25 +18,24 @@ public class LoginController extends Controller {
     @Inject
     private UserManagementService userManagementService;
 
-    public Result signupScreen() {
-        return ok(signup.render());
-    }
-
-    public Result loginScreen() {
-        return ok(login.render());
-    }
+//    public Result signupScreen() {
+//        return ok(signup.render());
+//    }
+//
+//    public Result loginScreen() {
+//        return ok(login.render());
+//    }
 
 
     @BodyParser.Of(BodyParser.Json.class)
-    public Result createUser(){
+    public Result createUser() throws IOException {
         UserDto userDto = null;
         String requestParams = request().body().asJson().toString();
-        System.out.println(requestParams);
         try {
             userDto = JsonMapper.mapJson(requestParams, UserDto.class);
             userManagementService.createUser(userDto);
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new IOException();
         }
         return ok(Json.toJson(userDto));
     }
@@ -58,8 +57,8 @@ public class LoginController extends Controller {
 
     }
 
-    public Result index() {
-        return ok(index.render());
-    }
+//    public Result index() {
+//        return ok(index.render());
+//    }
 
 }

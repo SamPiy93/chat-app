@@ -1,0 +1,145 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: UserDto</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">dto</a> ]
+</div>
+
+<h1>Coverage Summary for Class: UserDto (dto)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">UserDto</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (11/ 11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (16/ 16)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package dto;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.fasterxml.jackson.annotation.JsonProperty;
+<i>4</i>&nbsp;import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;@JsonPropertyOrder({&quot;USER_ID&quot;, &quot;USER_FIRSTNAME&quot;, &quot;USER_LASTNAME&quot;, &quot;USER_EMAIL&quot;, &quot;USER_PASSWORD&quot;})
+<b class="fc"><i>7</i>&nbsp;public class UserDto {</b>
+<i>8</i>&nbsp;    @JsonProperty(&quot;USER_ID&quot;)
+<i>9</i>&nbsp;    private Long userId;
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;    @JsonProperty(&quot;USER_FIRSTNAME&quot;)
+<i>12</i>&nbsp;    private String userFirstName;
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;    @JsonProperty(&quot;USER_LASTNAME&quot;)
+<i>15</i>&nbsp;    private String userLastName;
+<i>16</i>&nbsp;
+<i>17</i>&nbsp;    @JsonProperty(&quot;USER_EMAIL&quot;)
+<i>18</i>&nbsp;    private String userEmail;
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;    @JsonProperty(&quot;USER_PASSWORD&quot;)
+<i>21</i>&nbsp;    private String userPassword;
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;    public Long getUserId() {
+<b class="fc"><i>24</i>&nbsp;        return userId;</b>
+<i>25</i>&nbsp;    }
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;    public void setUserId(Long userId) {
+<b class="fc"><i>28</i>&nbsp;        this.userId = userId;</b>
+<b class="fc"><i>29</i>&nbsp;    }</b>
+<i>30</i>&nbsp;
+<i>31</i>&nbsp;    public String getUserFirstName() {
+<b class="fc"><i>32</i>&nbsp;        return userFirstName;</b>
+<i>33</i>&nbsp;    }
+<i>34</i>&nbsp;
+<i>35</i>&nbsp;    public void setUserFirstName(String userFirstName) {
+<b class="fc"><i>36</i>&nbsp;        this.userFirstName = userFirstName;</b>
+<b class="fc"><i>37</i>&nbsp;    }</b>
+<i>38</i>&nbsp;
+<i>39</i>&nbsp;    public String getUserLastName() {
+<b class="fc"><i>40</i>&nbsp;        return userLastName;</b>
+<i>41</i>&nbsp;    }
+<i>42</i>&nbsp;
+<i>43</i>&nbsp;    public void setUserLastName(String userLastName) {
+<b class="fc"><i>44</i>&nbsp;        this.userLastName = userLastName;</b>
+<b class="fc"><i>45</i>&nbsp;    }</b>
+<i>46</i>&nbsp;
+<i>47</i>&nbsp;    public String getUserEmail() {
+<b class="fc"><i>48</i>&nbsp;        return userEmail;</b>
+<i>49</i>&nbsp;    }
+<i>50</i>&nbsp;
+<i>51</i>&nbsp;    public void setUserEmail(String userEmail) {
+<b class="fc"><i>52</i>&nbsp;        this.userEmail = userEmail;</b>
+<b class="fc"><i>53</i>&nbsp;    }</b>
+<i>54</i>&nbsp;
+<i>55</i>&nbsp;    public String getUserPassword() {
+<b class="fc"><i>56</i>&nbsp;        return userPassword;</b>
+<i>57</i>&nbsp;    }
+<i>58</i>&nbsp;
+<i>59</i>&nbsp;    public void setUserPassword(String userPassword) {
+<b class="fc"><i>60</i>&nbsp;        this.userPassword = userPassword;</b>
+<b class="fc"><i>61</i>&nbsp;    }</b>
+<i>62</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2017-05-25 23:17</div>
+</div>
+</body>
+</html>

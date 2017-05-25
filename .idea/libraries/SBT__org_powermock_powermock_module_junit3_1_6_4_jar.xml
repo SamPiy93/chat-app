@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="SBT: org.powermock:powermock-module-junit3:1.6.4:jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.powermock/powermock-module-junit3/jars/powermock-module-junit3-1.6.4-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.powermock/powermock-module-junit3/jars/powermock-module-junit3-1.6.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

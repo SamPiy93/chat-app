@@ -1,0 +1,126 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: MessageController</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">controllers</a> ]
+</div>
+
+<h1>Coverage Summary for Class: MessageController (controllers)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">MessageController</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 16)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package controllers;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.google.inject.Inject;
+<i>4</i>&nbsp;import dto.MessageDto;
+<i>5</i>&nbsp;import dto.UserDto;
+<i>6</i>&nbsp;import play.libs.Json;
+<i>7</i>&nbsp;import play.mvc.BodyParser;
+<i>8</i>&nbsp;import play.mvc.Controller;
+<i>9</i>&nbsp;import play.mvc.Result;
+<i>10</i>&nbsp;import services.MessageService;
+<i>11</i>&nbsp;import utilities.JsonMapper;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import java.io.IOException;
+<i>14</i>&nbsp;
+<b class="nc"><i>15</i>&nbsp;public class MessageController extends Controller {</b>
+<i>16</i>&nbsp;    @Inject
+<i>17</i>&nbsp;    MessageService messageService;
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;    @BodyParser.Of(BodyParser.Json.class)
+<i>20</i>&nbsp;    public Result createMessage(){
+<b class="nc"><i>21</i>&nbsp;        MessageDto messageDto = null;</b>
+<b class="nc"><i>22</i>&nbsp;        String requestParams = request().body().asJson().toString();</b>
+<i>23</i>&nbsp;        try {
+<b class="nc"><i>24</i>&nbsp;            messageDto = JsonMapper.mapJson(requestParams, MessageDto.class);</b>
+<b class="nc"><i>25</i>&nbsp;            messageService.createMessage(messageDto);</b>
+<b class="nc"><i>26</i>&nbsp;        } catch (IOException e) {</b>
+<b class="nc"><i>27</i>&nbsp;            e.printStackTrace();</b>
+<b class="nc"><i>28</i>&nbsp;        }</b>
+<b class="nc"><i>29</i>&nbsp;        return ok(Json.toJson(messageDto));</b>
+<i>30</i>&nbsp;    }
+<i>31</i>&nbsp;    @BodyParser.Of(BodyParser.Json.class)
+<i>32</i>&nbsp;    public Result getMessages(){
+<b class="nc"><i>33</i>&nbsp;        MessageDto messageDto = null;</b>
+<b class="nc"><i>34</i>&nbsp;        String requestParams = request().body().asJson().toString();</b>
+<i>35</i>&nbsp;        try {
+<b class="nc"><i>36</i>&nbsp;            messageDto = JsonMapper.mapJson(requestParams, MessageDto.class);</b>
+<b class="nc"><i>37</i>&nbsp;            return ok(Json.toJson(messageService.getMessages(messageDto)));</b>
+<b class="nc"><i>38</i>&nbsp;        } catch (IOException e) {</b>
+<b class="nc"><i>39</i>&nbsp;            System.out.println(e.getLocalizedMessage());</b>
+<i>40</i>&nbsp;        }
+<b class="nc"><i>41</i>&nbsp;        return ok(&quot;No Messages To Display...&quot;);</b>
+<i>42</i>&nbsp;    }
+<i>43</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2017-05-25 23:17</div>
+</div>
+</body>
+</html>

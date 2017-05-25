@@ -1,0 +1,135 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: UserDaoImpl</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">dao</a> ]
+</div>
+
+<h1>Coverage Summary for Class: UserDaoImpl (dao)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">UserDaoImpl</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 15)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package dao;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.avaje.ebean.Ebean;
+<i>4</i>&nbsp;import com.avaje.ebean.Finder;
+<i>5</i>&nbsp;import dto.UserDto;
+<i>6</i>&nbsp;import models.UserModel;
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;import javax.persistence.PersistenceException;
+<i>9</i>&nbsp;import java.util.List;
+<i>10</i>&nbsp;
+<b class="nc"><i>11</i>&nbsp;public class UserDaoImpl implements UserDao {</b>
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;    @Override
+<i>14</i>&nbsp;    public UserModel add(UserModel entity) {
+<i>15</i>&nbsp;        try {
+<b class="nc"><i>16</i>&nbsp;            entity.save();</b>
+<b class="nc"><i>17</i>&nbsp;            return entity;</b>
+<b class="nc"><i>18</i>&nbsp;        } catch(PersistenceException e) {</b>
+<b class="nc"><i>19</i>&nbsp;            System.out.println(e.getLocalizedMessage());</b>
+<b class="nc"><i>20</i>&nbsp;            return entity;</b>
+<i>21</i>&nbsp;        }
+<i>22</i>&nbsp;    }
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;    @Override
+<i>25</i>&nbsp;    public UserModel update(UserModel updateEntity) {
+<b class="nc"><i>26</i>&nbsp;        return null;</b>
+<i>27</i>&nbsp;    }
+<i>28</i>&nbsp;
+<i>29</i>&nbsp;    @Override
+<i>30</i>&nbsp;    public boolean delete(UserModel id) {
+<b class="nc"><i>31</i>&nbsp;        return false;</b>
+<i>32</i>&nbsp;    }
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;    @Override
+<i>35</i>&nbsp;    public List&lt;UserModel&gt; getAllRecords() {
+<b class="nc"><i>36</i>&nbsp;        return UserModel.find.findList();</b>
+<i>37</i>&nbsp;    }
+<i>38</i>&nbsp;
+<i>39</i>&nbsp;    @Override
+<i>40</i>&nbsp;    public UserModel getDetailsById(Long id) {
+<b class="nc"><i>41</i>&nbsp;        return UserModel.find.byId(id);</b>
+<i>42</i>&nbsp;    }
+<i>43</i>&nbsp;
+<i>44</i>&nbsp;    @Override
+<i>45</i>&nbsp;    public UserModel getLoggedInUser(UserDto userDto) {
+<b class="nc"><i>46</i>&nbsp;        return UserModel.find</b>
+<b class="nc"><i>47</i>&nbsp;                .where()</b>
+<b class="nc"><i>48</i>&nbsp;                .eq(&quot;USER_EMAIL&quot;, userDto.getUserEmail())</b>
+<b class="nc"><i>49</i>&nbsp;                .eq(&quot;USER_PASSWORD&quot;, userDto.getUserPassword())</b>
+<b class="nc"><i>50</i>&nbsp;                .findUnique();</b>
+<i>51</i>&nbsp;    }
+<i>52</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2017-05-25 23:17</div>
+</div>
+</body>
+</html>

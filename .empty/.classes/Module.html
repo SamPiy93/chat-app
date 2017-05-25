@@ -1,0 +1,113 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Module</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">&lt;empty package name&gt;</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Module (&lt;empty package name&gt;)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Module</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 13)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;import com.google.inject.AbstractModule;
+<i>2</i>&nbsp;import dao.MessageDao;
+<i>3</i>&nbsp;import dao.MessageDaoImpl;
+<i>4</i>&nbsp;import dao.UserDao;
+<i>5</i>&nbsp;import dao.UserDaoImpl;
+<i>6</i>&nbsp;import services.MessageService;
+<i>7</i>&nbsp;import services.MessageServiceImpl;
+<i>8</i>&nbsp;import services.UserManagementService;
+<i>9</i>&nbsp;import services.UserManagementServiceImpl;
+<i>10</i>&nbsp;
+<b class="nc"><i>11</i>&nbsp;public class Module extends AbstractModule {</b>
+<i>12</i>&nbsp;    protected void configure() {
+<i>13</i>&nbsp;
+<b class="nc"><i>14</i>&nbsp;        bind(UserManagementService.class)</b>
+<b class="nc"><i>15</i>&nbsp;                .to(UserManagementServiceImpl.class)</b>
+<b class="nc"><i>16</i>&nbsp;                .asEagerSingleton();</b>
+<i>17</i>&nbsp;
+<b class="nc"><i>18</i>&nbsp;        bind(UserDao.class)</b>
+<b class="nc"><i>19</i>&nbsp;                .to(UserDaoImpl.class)</b>
+<b class="nc"><i>20</i>&nbsp;                .asEagerSingleton();</b>
+<i>21</i>&nbsp;
+<b class="nc"><i>22</i>&nbsp;        bind(MessageService.class)</b>
+<b class="nc"><i>23</i>&nbsp;                .to(MessageServiceImpl.class)</b>
+<b class="nc"><i>24</i>&nbsp;                .asEagerSingleton();</b>
+<i>25</i>&nbsp;
+<b class="nc"><i>26</i>&nbsp;        bind(MessageDao.class)</b>
+<b class="nc"><i>27</i>&nbsp;                .to(MessageDaoImpl.class)</b>
+<b class="nc"><i>28</i>&nbsp;                .asEagerSingleton();</b>
+<i>29</i>&nbsp;    }
+<i>30</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2017-05-25 23:17</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,190 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: UserModel</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">models</a> ]
+</div>
+
+<h1>Coverage Summary for Class: UserModel (models)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">UserModel</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 15)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 29)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package models;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.avaje.ebean.Model;
+<i>4</i>&nbsp;import org.h2.schema.Sequence;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;import javax.persistence.*;
+<i>7</i>&nbsp;import java.io.Serializable;
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;@Entity
+<i>10</i>&nbsp;@Table(name = &quot;USERS&quot;)
+<b class="nc"><i>11</i>&nbsp;public class UserModel extends Model implements Serializable{</b>
+<i>12</i>&nbsp;    @Id
+<i>13</i>&nbsp;    @Column(name = &quot;USER_ID&quot;,nullable = false)
+<i>14</i>&nbsp;    private Long userId;
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;    @Column(name = &quot;USER_FIRSTNAME&quot;,nullable = false)
+<i>17</i>&nbsp;    private String userFirstName;
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;    @Column(name = &quot;USER_LASTNAME&quot;,nullable = false)
+<i>20</i>&nbsp;    private String userLastName;
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;    @Column(name = &quot;USER_EMAIL&quot;,nullable = false)
+<i>23</i>&nbsp;    private String userEmail;
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;    @Column(name = &quot;USER_PASSWORD&quot;,nullable = false)
+<i>26</i>&nbsp;    private String userPassword;
+<i>27</i>&nbsp;
+<b class="nc"><i>28</i>&nbsp;    public static Finder&lt;Long, UserModel&gt; find = new Finder&lt;Long,UserModel&gt;(UserModel.class);</b>
+<i>29</i>&nbsp;
+<i>30</i>&nbsp;    public Long getUserId() {
+<b class="nc"><i>31</i>&nbsp;        return userId;</b>
+<i>32</i>&nbsp;    }
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;    public void setUserId(Long userId) {
+<b class="nc"><i>35</i>&nbsp;        this.userId = userId;</b>
+<i>36</i>&nbsp;    }
+<i>37</i>&nbsp;
+<i>38</i>&nbsp;    public String getUserFirstName() {
+<b class="nc"><i>39</i>&nbsp;        return userFirstName;</b>
+<i>40</i>&nbsp;    }
+<i>41</i>&nbsp;
+<i>42</i>&nbsp;    public void setUserFirstName(String userFirstName) {
+<b class="nc"><i>43</i>&nbsp;        this.userFirstName = userFirstName;</b>
+<i>44</i>&nbsp;    }
+<i>45</i>&nbsp;
+<i>46</i>&nbsp;    public String getUserLastName() {
+<b class="nc"><i>47</i>&nbsp;        return userLastName;</b>
+<i>48</i>&nbsp;    }
+<i>49</i>&nbsp;
+<i>50</i>&nbsp;    public void setUserLastName(String userLastName) {
+<b class="nc"><i>51</i>&nbsp;        this.userLastName = userLastName;</b>
+<i>52</i>&nbsp;    }
+<i>53</i>&nbsp;
+<i>54</i>&nbsp;    public String getUserEmail() {
+<b class="nc"><i>55</i>&nbsp;        return userEmail;</b>
+<i>56</i>&nbsp;    }
+<i>57</i>&nbsp;
+<i>58</i>&nbsp;    public void setUserEmail(String userEmail) {
+<b class="nc"><i>59</i>&nbsp;        this.userEmail = userEmail;</b>
+<i>60</i>&nbsp;    }
+<i>61</i>&nbsp;
+<i>62</i>&nbsp;    public String getUserPassword() {
+<b class="nc"><i>63</i>&nbsp;        return userPassword;</b>
+<i>64</i>&nbsp;    }
+<i>65</i>&nbsp;
+<i>66</i>&nbsp;    public void setUserPassword(String userPassword) {
+<b class="nc"><i>67</i>&nbsp;        this.userPassword = userPassword;</b>
+<i>68</i>&nbsp;    }
+<i>69</i>&nbsp;
+<i>70</i>&nbsp;    @Override
+<i>71</i>&nbsp;    public boolean equals(Object o) {
+<b class="nc"><i>72</i>&nbsp;        if (this == o) return true;</b>
+<b class="nc"><i>73</i>&nbsp;        if (o == null || getClass() != o.getClass()) return false;</b>
+<i>74</i>&nbsp;
+<b class="nc"><i>75</i>&nbsp;        UserModel userModel = (UserModel) o;</b>
+<i>76</i>&nbsp;
+<b class="nc"><i>77</i>&nbsp;        if (userId != null ? !userId.equals(userModel.userId) : userModel.userId != null) return false;</b>
+<b class="nc"><i>78</i>&nbsp;        if (userFirstName != null ? !userFirstName.equals(userModel.userFirstName) : userModel.userFirstName != null)</b>
+<b class="nc"><i>79</i>&nbsp;            return false;</b>
+<b class="nc"><i>80</i>&nbsp;        if (userLastName != null ? !userLastName.equals(userModel.userLastName) : userModel.userLastName != null)</b>
+<b class="nc"><i>81</i>&nbsp;            return false;</b>
+<b class="nc"><i>82</i>&nbsp;        if (userEmail != null ? !userEmail.equals(userModel.userEmail) : userModel.userEmail != null) return false;</b>
+<b class="nc"><i>83</i>&nbsp;        return userPassword != null ? userPassword.equals(userModel.userPassword) : userModel.userPassword == null;</b>
+<i>84</i>&nbsp;
+<i>85</i>&nbsp;    }
+<i>86</i>&nbsp;
+<i>87</i>&nbsp;    @Override
+<i>88</i>&nbsp;    public int hashCode() {
+<b class="nc"><i>89</i>&nbsp;        int result = userId != null ? userId.hashCode() : 0;</b>
+<b class="nc"><i>90</i>&nbsp;        result = 31 * result + (userFirstName != null ? userFirstName.hashCode() : 0);</b>
+<b class="nc"><i>91</i>&nbsp;        result = 31 * result + (userLastName != null ? userLastName.hashCode() : 0);</b>
+<b class="nc"><i>92</i>&nbsp;        result = 31 * result + (userEmail != null ? userEmail.hashCode() : 0);</b>
+<b class="nc"><i>93</i>&nbsp;        result = 31 * result + (userPassword != null ? userPassword.hashCode() : 0);</b>
+<b class="nc"><i>94</i>&nbsp;        return result;</b>
+<i>95</i>&nbsp;    }
+<i>96</i>&nbsp;
+<i>97</i>&nbsp;    @Override
+<i>98</i>&nbsp;    public String toString() {
+<b class="nc"><i>99</i>&nbsp;        return &quot;UserModel{&quot; +</b>
+<i>100</i>&nbsp;                &quot;userId=&quot; + userId +
+<i>101</i>&nbsp;                &quot;, userFirstName=&#39;&quot; + userFirstName + &#39;\&#39;&#39; +
+<i>102</i>&nbsp;                &quot;, userLastName=&#39;&quot; + userLastName + &#39;\&#39;&#39; +
+<i>103</i>&nbsp;                &quot;, userEmail=&#39;&quot; + userEmail + &#39;\&#39;&#39; +
+<i>104</i>&nbsp;                &quot;, userPassword=&#39;&quot; + userPassword + &#39;\&#39;&#39; +
+<i>105</i>&nbsp;                &#39;}&#39;;
+<i>106</i>&nbsp;    }
+<i>107</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2017-05-25 23:17</div>
+</div>
+</body>
+</html>

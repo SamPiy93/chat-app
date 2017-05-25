@@ -4,8 +4,8 @@
 
 # An example controller showing a sample home page
 GET     /                           controllers.LoginController.index
-GET     /login                      controllers.LoginController.loginScreen()
-GET     /register                   controllers.LoginController.signupScreen()
+#GET     /login                      controllers.LoginController.loginScreen()
+#GET     /register                   controllers.LoginController.signupScreen()
 GET     /chat/users                 controllers.UserController.getAllUsers()
 GET     /chat/users/:id             controllers.UserController.getUserByID(id:Long)
 POST    /chat/users                 controllers.LoginController.createUser()
